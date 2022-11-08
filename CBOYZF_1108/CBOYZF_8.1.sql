@@ -1,0 +1,1 @@
+SELECT COUNT(nev) FROM Auto WHERE szin='Piros'group by tipus;
