@@ -1,0 +1,76 @@
+CREATE TABLE Beszállító
+(
+  Beszállító_ID INT NOT NULL,
+  Ár INT NOT NULL,
+  CsomagolásTípusa INT NOT NULL,
+  VárhatóÉrkezés date NOT NULL,
+  PRIMARY KEY (Beszállító_ID)
+);
+
+CREATE TABLE Gyárihibás
+(
+  Gyárihiba_ID INT NOT NULL,
+  Ár INT NOT NULL,
+  Márka varchar(50) NOT NULL,
+  Név varchar(50) NOT NULL,
+  PRIMARY KEY (Gyárihiba_ID)
+);
+
+CREATE TABLE Ügyfél
+(
+  Irányítószám INT NOT NULL,
+  Város varchar(50) NOT NULL,
+  Utca varchar(50) NOT NULL,
+  Házszám INT NOT NULL,
+  Személyiszám varchar(50) NOT NULL,
+  Név varchar(50) NOT NULL,
+  VásárlásIdőpontja date NOT NULL,
+  VásároltTermék varchar(50) NOT NULL,
+ 
+  PRIMARY KEY (Személyiszám)
+);
+
+CREATE TABLE Ügyfél_Telefonszám
+(
+  Telefonszám varchar(50) NOT NULL,
+  Személyiszám varchar(50) NOT NULL,
+  PRIMARY KEY (Telefonszám, Személyiszám),
+  FOREIGN KEY (Személyiszám) REFERENCES Ügyfél(Személyiszám)
+);
+
+CREATE TABLE Raktárak
+(
+  Raktár_ID INT NOT NULL,
+  Ár INT NOT NULL,
+  RaktárbaÉrkezés date NOT NULL,
+  Város varchar(50) NOT NULL,
+  Utca varchar(50) NOT NULL,
+  ISZ varchar(50) NOT NULL,
+  Hászám INT NOT NULL,
+  Gyárihiba_ID INT NOT NULL,
+  PRIMARY KEY (Raktár_ID),
+  FOREIGN KEY (Gyárihiba_ID) REFERENCES Gyárihibás(Gyárihiba_ID)
+);
+
+CREATE TABLE Rendelés
+(
+  Rendelésszám INT NOT NULL,
+  VárhatóÉrkezés date NOT NULL,
+  Ár INT NOT NULL,
+  Helyzet varchar(50) NOT NULL,
+  Személyiszám varchar(50) NOT NULL,
+  Raktár_ID INT NOT NULL,
+  PRIMARY KEY (Rendelésszám),
+  FOREIGN KEY (Személyiszám) REFERENCES Ügyfél(Személyiszám),
+  FOREIGN KEY (Raktár_ID) REFERENCES Raktárak(Raktár_ID)
+);
+
+CREATE TABLE Beszállítás
+(
+  Darabszám INT NOT NULL,
+  Raktár_ID INT NOT NULL,
+  Beszállító_ID INT NOT NULL,
+  PRIMARY KEY (Raktár_ID, Beszállító_ID),
+  FOREIGN KEY (Raktár_ID) REFERENCES Raktárak(Raktár_ID),
+  FOREIGN KEY (Beszállító_ID) REFERENCES Beszállító(Beszállító_ID)
+);
