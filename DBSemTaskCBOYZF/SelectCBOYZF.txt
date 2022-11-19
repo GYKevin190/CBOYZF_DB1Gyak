@@ -1,0 +1,36 @@
+select * from gyárihibás where márka='Asus' GROUP BY Gyárihiba_ID;
+
+select * from gyárihibás
+INNER JOIN Raktárak ON gyárihibás.Gyárihiba_ID = Raktárak.Gyárihiba_ID
+where gyárihibás.ár=Raktárak.ár; 
+
+select * from ügyfél
+JOIN ügyfél_telefonszám on ügyfél.Személyiszám=ügyfél_telefonszám.Személyiszám
+where Telefonszám LIKE '06-30%'; 
+
+SELECT COUNT(Darabszám) AS Darabszám FROM Beszállítás
+WHERE Darabszám>4; 
+
+select * from ügyfél
+join Rendelés on ügyfél.Személyiszám=Rendelés.Személyiszám
+where ár= (SELECT MAX(ár) FROM rendelés); 
+
+select * from ügyfél
+join Rendelés on ügyfél.Személyiszám=Rendelés.Személyiszám
+where Helyzet='Depoban' and ár>10000; 
+
+select * from ügyfél
+where Házszám like '%1%'
+Order by Név;
+
+select SzemélyiSzám,RaktárbaÉrkezés from rendelés
+join raktárak on raktárak.Raktár_ID=rendelés.Raktár_ID
+where RaktárbaÉrkezés > '2022-09-12';
+
+select raktárak.Raktár_ID from raktárak
+join rendelés on rendelés.Raktár_ID = raktárak.Raktár_ID
+join ügyfél on rendelés.Személyiszám=ügyfél.Személyiszám
+where VásároltTermék like '%Samsung%';
+
+select * from beszállító
+where Ár>(select avg(Ár) from beszállító);
