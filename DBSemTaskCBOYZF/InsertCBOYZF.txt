@@ -4,17 +4,23 @@ INSERT INTO Beszállító values (03,2000,3,'2022-11-20');
 INSERT INTO Beszállító values (04,3250,2,'2022-11-10');
 INSERT INTO Beszállító values (05,4500,1,'2022-11-25');
 
+select * from Beszállító;
+
 INSERT INTO Gyárihibás values (01,5000,'Asus','PRIME H610M-D D4');
 INSERT INTO Gyárihibás values (02,16000,'Asus','PRIME H410M');
 INSERT INTO Gyárihibás values (03,19000,'Acer','Nitro');
 INSERT INTO Gyárihibás values (04,45000,'Razer','Kraken 2');
 INSERT INTO Gyárihibás values (05,380000,'Apple','Iphone 14');
 
+select * from Beszállító;
+
 INSERT INTO Raktárak values(01,5000,'2022-10-11','Abaújszántó','Béke út',1,3881,01);
 INSERT INTO Raktárak values(02,15000,'2022-10-19','Abaújszántó','Béke út',1,3881,02);
 INSERT INTO Raktárak values(03,18000,'2022-11-12','Miskolc','Kazincy út',3500,50,03);
 INSERT INTO Raktárak values(04,44000,'2022-09-12','Abaújszántó','Béke út',1,3881,04);
 INSERT INTO Raktárak values(05,390000,'2022-08-13','Miskolc','Kazincy út',3500,50,05);
+
+select * from Raktárak;
 
 
 INSERT INTO Ügyfél values (3881,'Abaújszántó','Béke út',38,'1928374IE','Kovács Zsolt','2022-10-18','Iphone 12');
@@ -23,11 +29,15 @@ INSERT INTO Ügyfél values (3907,'Tállya','Szabadság út',21,'1826951HJ','Nag
 INSERT INTO Ügyfél values (3907,'Rátka','Kossuth út',71,'1831928KI','Csanád Gergő','2022-09-01','Playstation 4');
 INSERT INTO Ügyfél values (3906 ,'Golop','József Attila út',11,'1944882BE','Kiss Lajos','2022-11-24','Xbox Series X');
 
+select * from Ügyfél;
+
 INSERT INTO Ügyfél_Telefonszám values('06-30-395-1849','1831928KI');
 INSERT INTO Ügyfél_Telefonszám values('06-70-213-1994','1944882BE');
 INSERT INTO Ügyfél_Telefonszám values('06-20-564-2022','1928374IE');
 INSERT INTO Ügyfél_Telefonszám values('06-30-723-1643','1826951HJ');
 INSERT INTO Ügyfél_Telefonszám values('06-70-987-9986','1972351KE');
+
+select * from Ügyfél_Telefonszám;
 
 
 INSERT INTO Rendelés values(01,'2022-10-18',5000,'Depoban','1928374IE',01);
@@ -36,11 +46,15 @@ INSERT INTO Rendelés values(03,'2022-11-01',19000,'Futárnál','1826951HJ',03);
 INSERT INTO Rendelés values(04,'2022-09-01',45000,'Futárnál','1831928KI',04);
 INSERT INTO Rendelés values(05,'2022-11-24',380000,'Kiszállításra Átadva','1944882BE',05);
 
+select * from Rendelés;
+
 INSERT INTO Beszállítás values(01,01,01);
 INSERT INTO Beszállítás values(10,02,02);
 INSERT INTO Beszállítás values(5,03,03);
 INSERT INTO Beszállítás values(6,04,04);
 INSERT INTO Beszállítás values(4,05,05);
+
+select * from Beszállítás;
 
 
 

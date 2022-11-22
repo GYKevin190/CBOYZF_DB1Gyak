@@ -7,6 +7,9 @@ CREATE TABLE Beszállító
   PRIMARY KEY (Beszállító_ID)
 );
 
+desc Beszállító;
+
+
 CREATE TABLE Gyárihibás
 (
   Gyárihiba_ID INT NOT NULL,
@@ -15,6 +18,8 @@ CREATE TABLE Gyárihibás
   Név varchar(50) NOT NULL,
   PRIMARY KEY (Gyárihiba_ID)
 );
+
+desc Gyárihibás;
 
 CREATE TABLE Ügyfél
 (
@@ -30,6 +35,8 @@ CREATE TABLE Ügyfél
   PRIMARY KEY (Személyiszám)
 );
 
+desc Ügyfél;
+
 CREATE TABLE Ügyfél_Telefonszám
 (
   Telefonszám varchar(50) NOT NULL,
@@ -37,6 +44,8 @@ CREATE TABLE Ügyfél_Telefonszám
   PRIMARY KEY (Telefonszám, Személyiszám),
   FOREIGN KEY (Személyiszám) REFERENCES Ügyfél(Személyiszám)
 );
+
+desc Ügyfél_Telefonszám;
 
 CREATE TABLE Raktárak
 (
@@ -52,6 +61,8 @@ CREATE TABLE Raktárak
   FOREIGN KEY (Gyárihiba_ID) REFERENCES Gyárihibás(Gyárihiba_ID)
 );
 
+desc Raktárak;
+
 CREATE TABLE Rendelés
 (
   Rendelésszám INT NOT NULL,
@@ -65,6 +76,8 @@ CREATE TABLE Rendelés
   FOREIGN KEY (Raktár_ID) REFERENCES Raktárak(Raktár_ID)
 );
 
+desc Rendelés;
+
 CREATE TABLE Beszállítás
 (
   Darabszám INT NOT NULL,
@@ -74,3 +87,5 @@ CREATE TABLE Beszállítás
   FOREIGN KEY (Raktár_ID) REFERENCES Raktárak(Raktár_ID),
   FOREIGN KEY (Beszállító_ID) REFERENCES Beszállító(Beszállító_ID)
 );
+
+desc Beszállítás;
